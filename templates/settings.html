@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - SM Mail Hub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="app-container">
+        <h2 class="title">Settings</h2>
+
+        <div class="glass-panel">
+            <h4 style="margin-bottom: 15px; color: var(--accent);">SMTP Configuration</h4>
+            
+            <label style="font-size: 12px; color: #94a3b8;">Sender Gmail</label>
+            <input type="email" class="input-box" placeholder="example@gmail.com">
+
+            <label style="font-size: 12px; color: #94a3b8;">App Password</label>
+            <input type="password" class="input-box" placeholder="xxxx xxxx xxxx xxxx">
+            
+            <p style="font-size: 11px; color: #64748b; margin-bottom: 15px;">
+                *Use Gmail App Password, not your regular password.
+            </p>
+
+            <button class="btn-main">Save Settings</button>
+        </div>
+
+        <div class="glass-panel" style="margin-top: 20px;">
+            <h4 style="margin-bottom: 15px; color: var(--accent);">App Theme</h4>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>Dark Mode</span>
+                <input type="checkbox" checked>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
