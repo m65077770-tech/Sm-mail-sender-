@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SM Mail Hub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body style="display: block; overflow-y: auto;">
+
+    <div class="app-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">SM Mail Hub</div>
+            <div class="profile-icon"><i class="fa-solid fa-circle-user fa-2x"></i></div>
+        </div>
+
+        <!-- Quick Actions Grid -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px;">
+            <div class="glass-panel" style="padding: 15px; text-align: center; margin: 0;">
+                <i class="fa-solid fa-paper-plane" style="color: var(--accent); font-size: 20px;"></i>
+                <p style="font-size: 12px; margin-top: 8px;">Send Email</p>
+            </div>
+            <div class="glass-panel" style="padding: 15px; text-align: center; margin: 0;">
+                <i class="fa-solid fa-clock-rotate-left" style="color: #fbbf24; font-size: 20px;"></i>
+                <p style="font-size: 12px; margin-top: 8px;">History</p>
+            </div>
+        </div>
+
+        <!-- Email Sending Form -->
+        <div class="glass-panel" style="max-width: 100%; margin-bottom: 80px;">
+            <h3 style="margin-bottom: 15px; font-size: 16px;">New Message</h3>
+            
+            <input type="email" id="recipient" class="input-box" placeholder="Recipient Email">
+            
+            <select id="emailType" class="input-box">
+                <option value="normal">Normal Email</option>
+                <option value="otp">OTP Style</option>
+                <option value="alert">Alert Email</option>
+                <option value="welcome">Welcome Message</option>
+            </select>
+
+            <input type="text" id="subject" class="input-box" placeholder="Subject">
+            
+            <textarea id="message" class="input-box" rows="5" placeholder="Write your message here..."></textarea>
+
+            <button onclick="sendMail()" id="sendBtn" class="btn-main">
+                <i class="fa-solid fa-paper-plane"></i> Send Now
+            </button>
+        </div>
+
+        <!-- Mobile Bottom Nav -->
+        <div style="position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); display: flex; justify-content: space-around; padding: 15px; border-top: 1px solid var(--border);">
+            <i class="fa-solid fa-house" style="color: var(--accent);"></i>
+            <i class="fa-solid fa-address-book" style="color: #94a3b8;"></i>
+            <i class="fa-solid fa-layer-group" style="color: #94a3b8;"></i>
+            <i class="fa-solid fa-gear" style="color: #94a3b8;"></i>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loader" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 100; justify-content: center; align-items: center; flex-direction: column;">
+        <div class="spinner"></div>
+        <p style="margin-top: 15px;">Sending Email...</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
